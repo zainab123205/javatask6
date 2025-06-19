@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pick First and Last Element</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Pick First and Last Element</h2>
+
+  <button onclick="generateAndShow()">Generate Array and Pick First and Last element</button>
+
+  <div id="output"></div>
+
+  <script>
+    function generateRandomArray(length = 6, min = 1, max = 100) {
+      const arr = [];
+      for (let i = 0; i < length; i++) {
+        arr.push(Math.floor(Math.random() * (max - min + 1)) + min);
+      }
+      return arr;
+    }
+
+    function generateAndShow() {
+      const array = generateRandomArray();
+      const first = array[0];
+      const last = array[array.length - 1];
+
+      document.getElementById('output').innerHTML = `
+        Generated Array: [${array.join(', ')}]<br>
+        First Element: ${first}<br>
+        Last Element: ${last}
+      `;
+    }
+  </script>
+
+</body>
+</html>
